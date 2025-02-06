@@ -1,0 +1,24 @@
+#container {
+    display: grid;
+    grid-template-areas: 'header header'
+        'sidebar photos';
+}
+header {
+    grid-area: header;
+}
+
+#sidebar {
+    grid-area: sidebar;
+}
+
+#photo-container {
+    grid-area: photos;
+}
+
+@media only screen and (max-width: 600px) {
+    #container {
+        grid-template-areas: 'header'
+            'sidebar'
+            'photos';
+    }
+}

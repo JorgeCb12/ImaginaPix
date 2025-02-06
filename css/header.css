@@ -1,0 +1,44 @@
+header {
+     display: flex;
+     flex-flow: row wrap;
+     justify-content: space-between;
+     align-items: center;
+     margin: 0 2rem;
+}
+header h1 {
+    margin: 30px;
+    flex-grow: 1;
+    text-align: center;
+}
+header ul {
+    flex-grow: 1;
+    margin: 2px;
+    padding: 0;
+    list-style: none;
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+}
+
+header ul li a {
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    margin: 20px;
+    color: #00000090;
+    transition: color 0.4s, border-bottom-color 0.4s;
+    border-bottom: 2px solid transparent; 
+}
+
+header ul li a:hover, header ul li a.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary); 
+}
+@media only screen and (min-width: 1200px) {
+    header h1 {
+        text-align: left;
+    }
+    header ul {
+        justify-content: flex-end ;
+    }
+}
