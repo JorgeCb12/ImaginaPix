@@ -2,7 +2,9 @@
     display: grid;
     grid-template-areas: 'header header'
         'sidebar photos';
+    gap: 20px; /* Espacio entre los elementos de la cuadrícula */
 }
+
 header {
     grid-area: header;
 }
