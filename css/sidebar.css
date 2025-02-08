@@ -1,13 +1,20 @@
 #sidebar {
-  border-left: 4px solid var(--color-primary);
   background-color: #f9f9f9;
-  padding: 20px;
+  padding: 30px;
+  height: calc(100vh - 60px);
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  margin-top: 3.4rem;
+  top: 60px; 
+  left: 0;
+  width: 250px; 
+  overflow-y: auto; 
+  border-left: 6px solid var(--color-primary);
+  
 }
 
 #sidebar ul {
-  margin: 0;
-  padding: 0 60px;
+  padding: 0 10px;
   list-style: none;
   display: flex;
   flex-flow: column wrap;
@@ -29,7 +36,6 @@
   padding: 0.5rem;
   color: #00000090;
   transition: all 0.2s;
-  border-radius: 4px;
 }
 
 #sidebar ul li a:hover,
@@ -39,7 +45,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-  /* Estilos para pantallas con un ancho máximo de 600px */
   #sidebar ul li {
     width: auto;
   }
@@ -54,9 +59,7 @@
   }
 }
 
-/* Estilos para pantallas con un ancho mínimo de 600px */
 @media only screen and (min-width: 600px) {
-  /* Estilos para pantallas con un ancho mínimo de 600px */
   #sidebar ul li {
     width: auto;
   }
@@ -71,32 +74,60 @@
   }
 }
 
-/* Estilos para pantallas con un ancho mínimo de 786px */
-@media only screen and (min-width: 768px) {
-  /* Estilos para pantallas con un ancho mínimo de 768px */
+@media only screen and (max-width: 768px) {
   #sidebar ul li {
     width: auto;
   }
+  #sidebar {
+    width: 100%;
+  }
   #sidebar ul {
+    display: none;
     flex-flow: column wrap;
     justify-content: center;
   }
   #sidebar ul li a:hover,
   #sidebar ul li a.active {
     border: none;
-    border-left: 4px solid var(--color-primary);
+  }
+  #sidebar ul {
+    padding: 0 10px;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  #sidebar {
+  .sidebar {
+    position: relative;
     width: 100%;
-    order: 1;
+    top: 0;
+    left: 0;
+    margin-bottom: 20px;
   }
-  main {
-    order: 2;
+  #sidebar {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin-bottom: 20px;
+    z-index: 2; /* Asegurar que el sidebar esté por delante de las fotos */
+  }
+
+  #sidebar ul {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  #sidebar ul li {
+    width: auto;
+  }
+
+  #sidebar ul li a:hover,
+  #sidebar ul li a.active {
+    border: none;
+    border-bottom: 4px solid var(--color-primary);
   }
 }
+
 
 
 

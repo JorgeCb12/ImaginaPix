@@ -1,8 +1,12 @@
 #header {
-  border-bottom: 4px solid var(--color-primary);
   background-color: #ffffff;
-  padding: 10px 20px;
+  padding: 8px 50px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; 
 }
 
 #header .logo {
@@ -43,7 +47,7 @@ header {
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  margin: 0 2rem;
+  margin: 0 0rem;
 }
 
 header h1 {
@@ -88,4 +92,21 @@ header ul li a:hover, header ul li a.active {
   header ul {
     justify-content: flex-end ;
   }
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin-bottom: 20px;
+  }
+  #header nav ul li {
+    margin: 0 2px;
+    flex-direction: flex-start;
+    margin-left: -20px;
+    display: flex;
+  }
+
 }

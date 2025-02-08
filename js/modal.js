@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     modal.addEventListener('click', function(event) {
         if (event.target === modal) {
-            modal.style.display = 'none';
+            modal.style.display = 'block';
         }
     });
 });
