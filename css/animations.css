@@ -26,7 +26,7 @@
 }
 
 .fade-in {
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 2s ease-in;
 }
 
 .slide-down {
@@ -35,4 +35,17 @@
 
 .slide-left {
   animation: slideLeft 1s ease-in-out;
+}
+
+.slide-in {
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

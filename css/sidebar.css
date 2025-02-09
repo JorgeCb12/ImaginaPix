@@ -46,17 +46,38 @@
 @media only screen and (max-width: 600px) {
   #sidebar {
     padding: 10px;
-    width: 220px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  #sidebar {
-    padding: 10px;
     width: 100%;
     height: auto;
+    top: 60px; /* Asegura que el sidebar esté justo debajo del header */
+    margin-top: 0; /* Elimina el margen superior */
     z-index: 100;
-    
+  }
+
+  #sidebar ul {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #sidebar ul li {
+    margin: 5px;
+    font-size: 0.7rem;
+    margin-left: 4px;
+    width: auto;
+    padding-bottom: 5px;
+    font-weight: bold;
+  }
+
+  #sidebar ul li a {
+    padding: 0.3rem;
+  }
+}
+@media only screen and (max-width: 490px) {
+  #sidebar {
+    width: 100%;
+    height: auto;
+    top: 60px; /* Asegura que el sidebar esté justo debajo del header */
+    margin-top: 40px; /* Elimina el margen superior */
+    z-index: 100;
   }
 
   #sidebar ul {

@@ -100,7 +100,8 @@ header ul li a:hover, header ul li a.active {
     width: 100%;
     top: 0;
     left: 0;
-    margin-bottom: 20px;
+    padding: 14px 0px;
+    margin-top: -4px;
   }
   #header nav ul li {
     margin: 0 2px;

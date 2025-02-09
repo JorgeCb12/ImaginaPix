@@ -14,8 +14,8 @@
 </head>
 
 <body>
-  <div id="container">
-    <header id="header">
+  <div id="container" class="fade-in">
+    <header id="header" class="slide-in">
       <div class="logo">Imagina<span class="pix">Pix</span></div>
       <nav>
         <ul>
@@ -25,16 +25,20 @@
         </ul>
       </nav>
     </header>
-    <aside id="sidebar">
+    <aside id="sidebar" class="slide-in">
       <ul>
         <li><a href="#todos">Todos</a></li>
         <li><a href="#tecnologia">Tecnologia</a></li>
-        <li><a href="#Diseño-web">Diseño web</a></li>
-        <li><a href="#Programadores">Programadores</a></li>
+        <li><a href="#minimalista">Minimalista</a></li>
+        <li><a href="#workspaces">Workspaces</a></li>
       </ul>
     </aside>
-    <main>
-      <section id="photo-container" class="gallery">
+    <main id="main-content">
+      <section id="photo-container" class="gallery fade-in">
+        <div id="tecnologia" class="photo-category"></div>
+        <div id="minimalista" class="photo-category"></div>
+        <div id="workspaces" class="photo-category"></div>
+        <div id="todos" class="photo-category"></div>
       </section>
     </main>
   </div>
@@ -43,5 +47,6 @@
   </footer> -->
   <script src="js/main.js"></script>
   <script src="js/modal.js"></script>
+  <script src="js/sidebar.js"></script>
 </body>
 </html>

@@ -32,6 +32,7 @@
   transform: scale(0.98);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .column {
   display: block;
   margin-bottom: 20px;
@@ -58,20 +59,19 @@
 
 @media only screen and (max-width: 1200px) {
   .gallery {
-    column-count: 3; 
+    column-count: 4; 
   }
 }
 
 @media only screen and (max-width: 1000px) {
   .gallery {
-    column-count: 2; 
+    column-count: 3; 
   }
 }
 
 @media only screen and (max-width: 768px) {
   .gallery {
     column-count: 2;
-
   }
 
   .photo {
@@ -99,24 +99,31 @@
 
 @media only screen and (max-width: 600px) {
   .gallery {
-    column-count: 1;
-  }
-  
-}
-
-@media only screen and (max-width: 480px) {
-  .gallery {
-    column-count: 1; 
+    column-count: 2;
     width: 100%;
     margin: 0 auto;
-    padding: 58% 0px;
-  }
-  .photo {
-    margin-left: 30px; 
-    z-index: 1; /* Asegurar que las fotos estén detrás del sidebar */
+    padding-top: 30%;
+    margin-top: 20px; /* Ajustar el margen superior para que las fotos no queden debajo del sidebar */
   }
   
-
+  .photo {
+    margin-left: 10px; 
+    z-index: 1; /* Asegurar que las fotos estén detrás del sidebar */
+  }
+}
+@media only screen and (max-width: 490px) {
+  .gallery {
+    column-count: 2;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 50%;
+    margin-top: 20px; /* Ajustar el margen superior para que las fotos no queden debajo del sidebar */
+  }
+  
+  .photo {
+    margin-left: 10px; 
+    z-index: 1; /* Asegurar que las fotos estén detrás del sidebar */
+  }
 }
 
 @keyframes fadeIn {
