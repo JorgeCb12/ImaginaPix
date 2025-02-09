@@ -16,11 +16,3 @@ header {
 #photo-container {
     grid-area: photos;
 }
-
-@media only screen and (max-width: 700px) {
-    #container {
-        grid-template-areas: 'header'
-            'sidebar'
-            'photos';
-    }
-}

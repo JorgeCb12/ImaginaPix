@@ -46,6 +46,10 @@
   margin-top: 100px; 
 }
 
+.gallery img {
+  animation: fadeIn 1s ease-in-out;
+}
+
 @media only screen and (max-width: 1400px) {
   .gallery {
     column-count: 5; 
@@ -66,9 +70,8 @@
 
 @media only screen and (max-width: 768px) {
   .gallery {
-    column-count: 1;
-    margin-left: 0; 
-    grid-template-columns: 1fr;
+    column-count: 2;
+
   }
 
   .photo {
@@ -96,7 +99,7 @@
 
 @media only screen and (max-width: 600px) {
   .gallery {
-    column-count: 1; 
+    column-count: 1;
   }
   
 }
@@ -104,7 +107,16 @@
 @media only screen and (max-width: 480px) {
   .gallery {
     column-count: 1; 
+    width: 100%;
+    margin: 0 auto;
+    padding: 58% 0px;
   }
+  .photo {
+    margin-left: 30px; 
+    z-index: 1; /* Asegurar que las fotos estén detrás del sidebar */
+  }
+  
+
 }
 
 @keyframes fadeIn {
@@ -129,7 +141,7 @@
   backdrop-filter: blur(10px);
   border-top: 10px solid var(--color-primary);
 }
-
+ 
 .modal-content {
   margin: auto;
   display: block;
