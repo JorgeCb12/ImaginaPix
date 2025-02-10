@@ -55,6 +55,7 @@ document.querySelector('#sidebar ul li a[href="#todos"]').addEventListener('clic
     });
     todosContainer.style.display = 'block';
     setActiveLink(this);
+    attachModalEvents(); // Adjuntar eventos del modal a las nuevas imágenes
 });
 
 // Mostrar fotos por categoría al hacer clic en los enlaces del sidebar
@@ -78,7 +79,32 @@ function setActiveLink(activeLink) {
     activeLink.classList.add('active');
 }
 
+// Función para adjuntar eventos del modal a las imágenes
+function attachModalEvents() {
+    const modal = document.querySelector('.modal');
+    const modalImg = modal.querySelector('.modal-content img');
+    const closeBtn = modal.querySelector('.close');
+
+    document.querySelectorAll('.photo img').forEach(img => {
+        img.addEventListener('click', function() {
+            modal.style.display = 'block';
+            modalImg.src = this.src;
+        });
+    });
+
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+}
+
 // Activar la sección "Todos" por defecto al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#sidebar ul li a[href="#todos"]').click();
+    attachModalEvents(); // Adjuntar eventos del modal a las imágenes iniciales
 });
