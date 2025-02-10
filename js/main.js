@@ -1,6 +1,6 @@
 const tecnologiaContainer = document.getElementById('tecnologia');
 const minimalistaContainer = document.getElementById('minimalista');
-const workspacesContainer = document.getElementById('workspaces');
+const otrosContainer = document.getElementById('otros');
 const todosContainer = document.getElementById('todos');
 
 // Función para obtener el elemento de la foto
@@ -29,8 +29,8 @@ addPhotosToContainer(tecnologiaContainer, 30, 'tecnologia');
 // Agregar fotos de la categoría "minimalista"
 addPhotosToContainer(minimalistaContainer, 20, 'minimalista');
 
-// Agregar fotos de la categoría "workspaces"
-addPhotosToContainer(workspacesContainer, 20, 'workspaces');
+// Agregar fotos de la categoría "otros"
+addPhotosToContainer(otrosContainer, 20, 'otros');
 
 // Función para mezclar un array
 function shuffle(array) {
@@ -41,19 +41,20 @@ function shuffle(array) {
     return array;
 }
 
-// Mostrar todas las fotos al hacer clic en "Todos"
-document.getElementById('todos').addEventListener('click', function(event) {
+// Mostrar todas las fotos al hacer clic "en Todos"
+document.querySelector('#sidebar ul li a[href="#todos"]').addEventListener('click', function(event) {
     event.preventDefault();
     const allPhotos = [
         ...tecnologiaContainer.querySelectorAll('.photo'),
         ...minimalistaContainer.querySelectorAll('.photo'),
-        ...workspacesContainer.querySelectorAll('.photo')
+        ...otrosContainer.querySelectorAll('.photo')
     ].map(photo => photo.outerHTML);
     todosContainer.innerHTML = shuffle(allPhotos).join('');
     document.querySelectorAll('.photo-category').forEach(container => {
         container.style.display = 'none';
     });
     todosContainer.style.display = 'block';
+    setActiveLink(this);
 });
 
 // Mostrar fotos por categoría al hacer clic en los enlaces del sidebar
@@ -65,5 +66,19 @@ document.querySelectorAll('#sidebar ul li a').forEach(link => {
             container.style.display = 'none';
         });
         document.getElementById(category).style.display = 'block';
+        setActiveLink(this);
     });
+});
+
+// Función para establecer el enlace activo
+function setActiveLink(activeLink) {
+    document.querySelectorAll('#sidebar ul li a').forEach(link => {
+        link.classList.remove('active');
+    });
+    activeLink.classList.add('active');
+}
+
+// Activar la sección "Todos" por defecto al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('#sidebar ul li a[href="#todos"]').click();
 });

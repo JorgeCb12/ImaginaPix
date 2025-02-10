@@ -1,6 +1,6 @@
 .photo {
   display: block;
-  margin: 10px;
+  margin: 20px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   border-radius: 10px;
@@ -19,7 +19,7 @@
 }
 
 .photo:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
 }
 
