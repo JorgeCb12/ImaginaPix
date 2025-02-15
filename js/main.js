@@ -15,13 +15,17 @@ function getPhotoElement(photo_id, category) {
     `;
 }
 
-// Función para agregar fotos a un contenedor
+// Función para agregar fotos a un contenedor en columnas
 function addPhotosToContainer(container, totalPhotos, category) {
-    let content = "";
+    const columns = 3; // Número de columnas
+    let columnContents = Array(columns).fill('');
+
     for (let i = 0; i < totalPhotos; i++) {
-        content += getPhotoElement(i + 1, category);
+        const columnIndex = i % columns;
+        columnContents[columnIndex] += getPhotoElement(i + 1, category);
     }
-    container.innerHTML = content;
+
+    container.innerHTML = columnContents.map(content => `<div class="column">${content}</div>`).join('');
 }
 
 // Agregar fotos de la categoría "tecnologia"
