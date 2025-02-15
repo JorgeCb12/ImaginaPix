@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Definir las variables CSS */
+:root {
+    --color-primary: #05a081;
+    --color-primary-light: #85c1e9;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#header {
+    background-color: #ffffff;
+    color: #00000090;
+    padding: 0px 4px; /* Reducir el padding para dar más espacio */
+}
+
+#header .logo {
+    color: #00000090;
+    padding-left: 40px;
+}
+
+#header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#header nav ul li {
+    margin: 0 10px;
+}
+
+#header nav ul li a {
+    color: #00000090;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+#header nav ul li a:hover,
+#header nav ul li a.active {
+    color: var(--color-primary); /* Color primario para el enlace activo */
+}
+
+#main-content {
+    padding-top: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#about-us {
+    padding: 5rem;
+    margin-top: 60px; /* Agregar margen superior para separar del header */
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#about-us h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+.founder-card {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.founder-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #e0e0e0;
+    margin-bottom: 10px;
+}
+
+.founder-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.history-content {
+    text-align: left;
+    line-height: 1.8;
+    color: #444;
+}
+
+.history-content h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: var(--color-primary);
+}
+
+.history-content p {
+    margin-bottom: 20px;
+}
+
+.key-points {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.key-points .point {
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.key-points .point h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.key-points .point p {
+    margin: 0;
+}
+
+.key-points .point:hover {
+    transform: translateY(-5px);
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+    margin: 1.5rem 0;
+}
+
+h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2rem;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .founder-card img {
+        width: 150px;
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.9rem; /* Ajusta el tamaño de la fuente según sea necesario */
+}
+
+nav ul li a.active {
+    font-weight: bold;
+    color: var(--color-primary); /* Color primario para el enlace activo */
+}
+
+.footer-content {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
