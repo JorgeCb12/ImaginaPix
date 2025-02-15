@@ -9,7 +9,8 @@ function getPhotoElement(photo_id, category) {
     const pngPath = `img/${category}/photo_${photo_id}.png`;
     return `
       <a href="#" class="photo">
-        <img src="${jpgPath}" alt="Photo ${photo_id}" onerror="this.onerror=null; this.src='${pngPath}'">
+        <div class="loading">Cargando...</div>
+        <img src="${jpgPath}" srcset="${jpgPath} 1x, ${pngPath} 2x" alt="Photo ${photo_id}" onerror="this.onerror=null; this.src='${pngPath}'; this.srcset='${pngPath} 1x, ${pngPath} 2x'" loading="lazy" onload="this.previousElementSibling.remove()">
       </a>
     `;
 }
