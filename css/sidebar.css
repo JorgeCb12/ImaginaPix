@@ -45,12 +45,17 @@
 
 @media only screen and (max-width: 600px) {
   #sidebar {
-    padding: 10px;
+    padding: 6px;
     width: 100%;
     height: auto;
-    top: 60px; /* Asegura que el sidebar esté justo debajo del header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: 50px; /* Asegura que el sidebar esté justo debajo del header */
     margin-top: 0; /* Elimina el margen superior */
     z-index: 100;
+    padding: 2px;
   }
 
   #sidebar ul {
@@ -59,16 +64,21 @@
   }
 
   #sidebar ul li {
-    margin: 5px;
-    font-size: 0.7rem;
-    margin-left: 4px;
     width: auto;
     padding-bottom: 5px;
-    font-weight: bold;
   }
-
   #sidebar ul li a {
-    padding: 0.3rem;
+    margin-top: 30px ;
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 515px) {
+  #sidebar {
+    top: 10px; /* Asegura que el sidebar esté justo debajo del header */
+    padding-bottom: 10px;
+  }
+  #sidebar ul li a {
+    margin-top: 80px;
   }
 }
 @media only screen and (max-width: 490px) {
@@ -91,11 +101,33 @@
     margin-left: 4px;
     width: auto;
     padding-bottom: 5px;
-    font-weight: bold;
   }
 
   #sidebar ul li a {
-    padding: 0.3rem;
+    margin-top: 10px;
+  }
+}
+
+#todos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#todos .photo {
+  margin: 5px;
+  flex: 1 1 calc(33.333% - 10px); /* Ajusta el tamaño de las fotos para que se distribuyan en 3 columnas */
+}
+
+@media only screen and (max-width: 600px) {
+  #todos .photo {
+    flex: 1 1 calc(50% - 10px); /* Ajusta el tamaño de las fotos para que se distribuyan en 2 columnas en pantallas pequeñas */
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #todos .photo {
+    flex: 1 1 calc(100% - 10px); /* Ajusta el tamaño de las fotos para que se distribuyan en 1 columna en pantallas muy pequeñas */
   }
 }
 

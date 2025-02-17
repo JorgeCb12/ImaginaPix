@@ -58,7 +58,7 @@ document.querySelector('#sidebar ul li a[href="#todos"]').addEventListener('clic
     document.querySelectorAll('.photo-category').forEach(container => {
         container.style.display = 'none';
     });
-    todosContainer.style.display = 'block';
+    todosContainer.style.display = 'flex';
     setActiveLink(this);
     attachModalEvents(); // Adjuntar eventos del modal a las nuevas imágenes
 });
@@ -73,6 +73,7 @@ document.querySelectorAll('#sidebar ul li a').forEach(link => {
         });
         document.getElementById(category).style.display = 'block';
         setActiveLink(this);
+        attachModalEvents(); // Adjuntar eventos del modal a las imágenes de la categoría seleccionada
     });
 });
 
