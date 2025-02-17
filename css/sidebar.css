@@ -108,29 +108,6 @@
   }
 }
 
-#todos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-#todos .photo {
-  margin: 5px;
-  flex: 1 1 calc(33.333% - 10px); /* Ajusta el tamaño de las fotos para que se distribuyan en 3 columnas */
-}
-
-@media only screen and (max-width: 600px) {
-  #todos .photo {
-    flex: 1 1 calc(50% - 10px); /* Ajusta el tamaño de las fotos para que se distribuyan en 2 columnas en pantallas pequeñas */
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  #todos .photo {
-    flex: 1 1 calc(100% - 10px); /* Ajusta el tamaño de las fotos para que se distribuyan en 1 columna en pantallas muy pequeñas */
-  }
-}
-
 
 
 

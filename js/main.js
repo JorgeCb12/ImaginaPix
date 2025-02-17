@@ -5,12 +5,17 @@ const todosContainer = document.getElementById('todos');
 
 // Función para obtener el elemento de la foto
 function getPhotoElement(photo_id, category) {
+    const webpPath = `img/${category}/photo_${photo_id}.webp`;
     const jpgPath = `img/${category}/photo_${photo_id}.jpg`;
-    const pngPath = `img/${category}/photo_${photo_id}.png`;
     return `
       <a href="#" class="photo">
         <div class="loading">Cargando...</div>
-        <img src="${jpgPath}" srcset="${jpgPath} 1x, ${pngPath} 2x" alt="Photo ${photo_id}" onerror="this.onerror=null; this.src='${pngPath}'; this.srcset='${pngPath} 1x, ${pngPath} 2x'" loading="lazy" onload="this.previousElementSibling.remove()">
+        <img 
+          src="${webpPath}" 
+          alt="Photo ${photo_id}" 
+          onerror="this.onerror=null; this.src='${jpgPath}';" 
+          loading="lazy" 
+          onload="this.previousElementSibling.remove()">
       </a>
     `;
 }
@@ -58,9 +63,10 @@ document.querySelector('#sidebar ul li a[href="#todos"]').addEventListener('clic
     document.querySelectorAll('.photo-category').forEach(container => {
         container.style.display = 'none';
     });
-    todosContainer.style.display = 'flex';
+    todosContainer.style.display = 'block'; // Cambiar a 'block' para asegurar que las imágenes se muestren correctamente
     setActiveLink(this);
     attachModalEvents(); // Adjuntar eventos del modal a las nuevas imágenes
+    window.dispatchEvent(new Event('resize')); // Forzar un evento de redimensionamiento para asegurar que las imágenes se carguen correctamente
 });
 
 // Mostrar fotos por categoría al hacer clic en los enlaces del sidebar
