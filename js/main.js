@@ -6,14 +6,13 @@ const todosContainer = document.getElementById('todos');
 // Función para obtener el elemento de la foto
 function getPhotoElement(photo_id, category) {
     const webpPath = `img/${category}/photo_${photo_id}.webp`;
-    const jpgPath = `img/${category}/photo_${photo_id}.jpg`;
     return `
       <a href="#" class="photo">
         <div class="loading">Cargando...</div>
         <img 
           src="${webpPath}" 
           alt="Photo ${photo_id}" 
-          onerror="this.onerror=null; this.src='${jpgPath}';" 
+          onerror="this.onerror=null; this.src='${webpPath}';" 
           loading="lazy" 
           onload="this.previousElementSibling.remove()">
       </a>
@@ -94,20 +93,35 @@ function setActiveLink(activeLink) {
 // Función para adjuntar eventos del modal a las imágenes
 function attachModalEvents() {
     const modal = document.querySelector('.modal');
-    const modalImg = modal.querySelector('.modal-content img');
+    const modalImg = modal.querySelector('.modal-img');
     const closeBtn = modal.querySelector('.close');
+    const downloadBtn = modal.querySelector('.download-btn');
 
     document.querySelectorAll('.photo img').forEach(img => {
         img.addEventListener('click', function() {
             modal.style.display = 'block';
             modalImg.src = this.src;
+
+            // Obtener el ID de la foto y la categoría desde la ruta de la imagen
+            const photoId = this.src.match(/photo_(\d+)/)[1];
+            const category = this.src.match(/img\/(\w+)\//)[1];
+
+            // Ruta de la imagen WebP
+            const webpPath = `img/${category}/photo_${photoId}.webp`;
+
+            // Actualizar el botón de descarga con la ruta correcta
+            downloadBtn.href = webpPath;
+            downloadBtn.setAttribute('download', `photo_${photoId}.webp`);
+            downloadBtn.style.display = 'block'; // Asegurar que la opción de descarga esté visible
         });
     });
 
+    // Cerrar el modal
     closeBtn.addEventListener('click', function() {
         modal.style.display = 'none';
     });
 
+    // Cerrar el modal al hacer clic fuera de la imagen
     modal.addEventListener('click', function(event) {
         if (event.target === modal) {
             modal.style.display = 'none';
