@@ -4,6 +4,10 @@
 :root {
     --color-primary: #05a081;
     --color-primary-light: #85c1e9;
+    --color-background: #f4f4f4;
+    --color-text: #2c3e50;
+    --color-border: rgba(255, 255, 255, 0.2);
+    --color-shadow: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -11,18 +15,29 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: var(--color-background);
 }
 
 #header {
     background-color: #ffffff;
     color: #00000090;
     padding: 0px 4px; /* Reducir el padding para dar más espacio */
+    box-shadow: 0 2px 5px var(--color-shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #header .logo {
     color: #00000090;
     padding-left: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 #header nav ul {
@@ -42,6 +57,7 @@ body {
     color: #00000090;
     text-decoration: none;
     font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
 #header nav ul li a:hover,
@@ -49,40 +65,75 @@ body {
     color: var(--color-primary); /* Color primario para el enlace activo */
 }
 
+#container {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
 #main-content {
-    padding-top: 40px;
+    margin-top: 20px;
     max-width: 1000px;
-    margin: 0 auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: transparent;
+    border-left: 6px solid var(--color-primary);
+    border-right: 6px solid var(--color-primary);
+    padding: 20px;
+    box-shadow: 0 4px 8px var(--color-shadow);
+    border-radius: 10px;
 }
 
 #about-us {
-    padding: 5rem;
-    margin-top: 60px; /* Agregar margen superior para separar del header */
+    padding: 5rem;/* Agregar margen superior para separar del header */
     max-width: 1000px;
     margin: 0 auto;
-    background-color: #f9f9f9;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
     text-align: center;
 }
 
 #about-us h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
     color: var(--color-primary);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px var(--color-shadow);
+}
+
+.cta-button:hover {
+    background-color: var(--color-primary-light);
+    transform: translateY(-5px);
 }
 
 .founder-card {
     text-align: center;
-    margin: 2rem 0;
-    padding: 2rem;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 8px var(--color-shadow), 0 6px 20px var(--color-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-block;
     margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.founder-card:hover {
+    transform: translateY(-10px);
 }
 
 .founder-card img {
@@ -128,9 +179,14 @@ body {
 .key-points .point {
     text-align: center;
     padding: 1.5rem;
-    background: white;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.key-points .point:hover {
+    transform: translateY(-10px);
 }
 
 .key-points .point h3 {
@@ -170,7 +226,7 @@ h2 {
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -183,13 +239,13 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 10px;
+    padding-left: 22px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #000;
-    font-size: 0.9rem; /* Ajusta el tamaño de la fuente según sea necesario */
+    font-size: 0.7rem; /* Ajusta el tamaño de la fuente según sea necesario */
 }
 
 nav ul li a.active {
@@ -199,10 +255,34 @@ nav ul li a.active {
 
 .footer-content {
     background-color: #333;
-    color: #fff;
+    color: #ccc;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    bottom: 0;
     width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin-top: 20px;
+    box-shadow: 0 -2px 5px var(--color-shadow);
+}
+
+@media (max-width: 478px) {
+    #container {
+        margin-top: 8rem;
+       
+    }
+    #header {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    #header .logo {
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    #header nav ul {
+        flex-direction: column;
+        align-items: start;
+    }
 }
