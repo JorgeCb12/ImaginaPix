@@ -10,11 +10,11 @@ function getPhotoElement(photo_id, category) {
       <a href="#" class="photo">
         <div class="loading">Cargando...</div>
         <img 
-          src="${webpPath}" 
+          data-src="${webpPath}" 
           alt="Photo ${photo_id}" 
           onerror="this.onerror=null; this.src='${webpPath}';" 
           loading="lazy" 
-          onload="this.previousElementSibling.remove()">
+          onload="this.previousElementSibling.remove(); this.classList.add('lazy-loaded');">
       </a>
     `;
 }
@@ -65,6 +65,7 @@ document.querySelector('#sidebar ul li a[href="#todos"]').addEventListener('clic
     todosContainer.style.display = 'block'; // Cambiar a 'block' para asegurar que las imágenes se muestren correctamente
     setActiveLink(this);
     attachModalEvents(); // Adjuntar eventos del modal a las nuevas imágenes
+    lazyLoadImages(); // Activar lazy loading para las nuevas imágenes
     window.dispatchEvent(new Event('resize')); // Forzar un evento de redimensionamiento para asegurar que las imágenes se carguen correctamente
 });
 
@@ -79,6 +80,7 @@ document.querySelectorAll('#sidebar ul li a').forEach(link => {
         document.getElementById(category).style.display = 'block';
         setActiveLink(this);
         attachModalEvents(); // Adjuntar eventos del modal a las imágenes de la categoría seleccionada
+        lazyLoadImages(); // Activar lazy loading para las nuevas imágenes
     });
 });
 
@@ -129,8 +131,45 @@ function attachModalEvents() {
     });
 }
 
+// Función para activar lazy loading en las imágenes
+function lazyLoadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    const config = {
+        rootMargin: '0px 0px 50px 0px',
+        threshold: 0.01
+    };
+
+    let observer;
+    if ('IntersectionObserver' in window) {
+        observer = new IntersectionObserver(onIntersection, config);
+        images.forEach(image => {
+            observer.observe(image);
+        });
+    } else {
+        images.forEach(image => {
+            loadImage(image);
+        });
+    }
+
+    function onIntersection(entries) {
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0) {
+                observer.unobserve(entry.target);
+                loadImage(entry.target);
+            }
+        });
+    }
+
+    function loadImage(image) {
+        image.src = image.getAttribute('data-src');
+        image.removeAttribute('data-src');
+        image.classList.add('lazy-loaded');
+    }
+}
+
 // Activar la sección "Todos" por defecto al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#sidebar ul li a[href="#todos"]').click();
     attachModalEvents(); // Adjuntar eventos del modal a las imágenes iniciales
+    lazyLoadImages(); // Activar lazy loading para las imágenes iniciales
 });

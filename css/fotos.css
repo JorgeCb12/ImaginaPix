@@ -15,6 +15,12 @@
   object-fit: cover;
   transition: opacity 0.2s, transform 0.3s;
   animation: fadeIn 1s ease-in-out;
+  opacity: 0; /* Inicialmente ocultar la imagen */
+}
+
+.photo img.lazy-loaded {
+  opacity: 1; /* Mostrar la imagen cuando se haya cargado */
+  transition: opacity 0.5s ease-in-out; /* Añadir una transición suave */
 }
 
 .photo:hover {
