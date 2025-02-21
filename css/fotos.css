@@ -132,29 +132,6 @@
   }
 }
 
-@media only screen and (max-width: 490px) {
-  .gallery {
-    column-count: 2;
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 50%;
-    margin-top: 20px; /* Ajustar el margen superior para que las fotos no queden debajo del sidebar */
-  }
-  
-  .photo {
-    margin-left: 10px; 
-    z-index: 1; /* Asegurar que las fotos estén detrás del sidebar */
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
 .modal {
   display: none;

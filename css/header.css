@@ -90,6 +90,46 @@ header ul li a:hover, header ul li a.active {
   color: var(--color-primary);
 }
 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.hamburger .rotate1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger .hide {
+  opacity: 0;
+}
+
+.hamburger .rotate2 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.hamburger svg {
+  fill: #000;
+  width: 30px;
+  height: 30px;
+  transition: fill 0.4s;
+}
+
+.hamburger svg:hover {
+  fill: var(--color-primary);
+}
+
 @media only screen and (min-width: 1200px) {
   header h1 {
     text-align: left;
@@ -101,24 +141,30 @@ header ul li a:hover, header ul li a.active {
 
 @media only screen and (max-width: 768px) {
   header {
-    position: relative;
-    width: 100%;
-    top: 0;
-    left: 0;
+    flex-direction: column;
+    align-items: center;
     padding: 14px 0px;
-    margin-top: -4px;
-  }
-  #header nav ul li {
-    margin: 0 2px;
-    flex-direction: flex-start;
-    margin-left: -20px;
-    display: flex;
-  }
-  #header nav ul li a {
-    font-size: 14px;
   }
 
+  #header .logo {
+    margin-bottom: 10px;
+  }
+
+  #header nav ul {
+    flex-direction: column;
+    align-items: center;
+    display: none; /* Ocultar el menú por defecto */
+  }
+
+  #header nav ul.show {
+    display: flex; /* Mostrar el menú cuando se active */
+  }
+
+  .hamburger {
+    display: flex; /* Mostrar el botón de menú hamburguesa */
+  }
 }
+
 @media only screen and (max-width: 490px) { 
   #header nav ul li a {
     font-size: 12px;

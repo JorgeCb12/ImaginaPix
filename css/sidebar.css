@@ -45,15 +45,13 @@
 
 @media only screen and (max-width: 600px) {
   #sidebar {
-    padding: 6px;
     width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    top: 50px; /* Asegura que el sidebar esté justo debajo del header */
-    margin-top: 0; /* Elimina el margen superior */
+    margin-top: 0; 
     z-index: 100;
     padding: 2px;
   }
@@ -65,28 +63,17 @@
 
   #sidebar ul li {
     width: auto;
-    padding-bottom: 5px;
+    
   }
   #sidebar ul li a {
-    margin-top: 30px ;
     font-size: 0.8rem;
   }
 }
-@media only screen and (max-width: 515px) {
-  #sidebar {
-    top: 10px; /* Asegura que el sidebar esté justo debajo del header */
-    padding-bottom: 10px;
-  }
-  #sidebar ul li a {
-    margin-top: 80px;
-  }
-}
+
 @media only screen and (max-width: 490px) {
   #sidebar {
     width: 100%;
     height: auto;
-    top: 60px; /* Asegura que el sidebar esté justo debajo del header */
-    margin-top: 40px; /* Elimina el margen superior */
     z-index: 100;
   }
 
@@ -96,16 +83,12 @@
   }
 
   #sidebar ul li {
-    margin: 5px;
     font-size: 0.7rem;
     margin-left: 4px;
     width: auto;
-    padding-bottom: 5px;
   }
 
-  #sidebar ul li a {
-    margin-top: 10px;
-  }
+  
 }
 
 
