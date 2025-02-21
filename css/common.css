@@ -1,13 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Definir las variables CSS */
+:root {
+    --color-primary: #05a081;
+    --color-primary-light: #85c1e9;
+    --color-background: #f4f4f4;
+    --color-text: #2c3e50;
+    --color-border: rgba(255, 255, 255, 0.2);
+    --color-shadow: rgba(0, 0, 0, 0.1);
+}
 
 * {
     box-sizing: border-box;
-
 }
+
 body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    font-family: "Poppins", serif;
-    font-weight: 600;
+    background-color: var(--color-background);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px var(--color-shadow);
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: var(--color-primary-light);
+    transform: translateY(-5px);
+}
+
+.footer-content {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin-top: 20px;
+    box-shadow: 0 -2px 5px var(--color-shadow);
+}
+
+@media (max-width: 768px) {
+    #header .logo {
+        padding-left: 20px;
+    }
+
+    #header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #header nav ul li {
+        margin: 5px 0;
+    }
+
+    #main-content {
+        padding: 10px;
+    }
 }
